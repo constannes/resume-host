@@ -1,7 +1,10 @@
 const fs = require("fs");
+const path = require("path");
 
 module.exports = (req, res) => {
-  const pdf = fs.readFileSync("./Sample-Resume.pdf");
+  const filePath = path.join(process.cwd(), "Sample-Resume.pdf");
+
+  const file = fs.readFileSync(filePath);
 
   res.setHeader(
     "Content-Disposition",
@@ -10,5 +13,5 @@ module.exports = (req, res) => {
 
   res.setHeader("Content-Type", "application/pdf");
 
-  res.end(pdf);
+  res.status(200).send(file);
 };
