@@ -5,7 +5,7 @@ module.exports = (req, res) => {
   const filePath = path.join(
     process.cwd(),
     "public",
-    "Anne-Lorraine-Carreon-Resume.pdf",
+    "Anne_Lorraine_Carreon_Resume.pdf",
   );
 
   const file = fs.readFileSync(filePath);
@@ -14,7 +14,7 @@ module.exports = (req, res) => {
 
   res.setHeader(
     "Content-Disposition",
-    "attachment; filename=Anne-Lorraine-Carreon-Resume.pdf",
+    "attachment; filename=Anne_Lorraine_Carreon_Resume.pdf",
   );
 
   res.status(200).send(file);
